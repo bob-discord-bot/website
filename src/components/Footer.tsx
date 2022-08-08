@@ -19,6 +19,12 @@ const Footer = () => {
 			<div class="flex flex-col items-start gap-2">
 				<StyledLink to="/">Home</StyledLink>
 				<StyledLink to="/terms">Terms of Service and Privacy Policy</StyledLink>
+				<a
+					href="https://github.com/bob-discord-bot"
+					class="border-emerald-500 font-semibold text-emerald-200 transition-all duration-75 hover:border-b-4"
+				>
+					GitHub
+				</a>
 			</div>
 			<div class="flex flex-col items-start gap-2">
 				{botInfo ? (

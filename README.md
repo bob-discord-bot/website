@@ -1,3 +1,3 @@
-# omame's Preact boilerplate
+# bob.omame.xyz
 
-thing for me to ez
+This is the source code for bob's website.
