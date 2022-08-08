@@ -5,8 +5,10 @@
   "author": "omame",
   "license": "MIT",
   "scripts": {
+    "clean": "rm -rf dist",
     "dev": "webpack serve --mode development",
-    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "build": "yarn clean && cross-env NODE_ENV=production webpack --mode production",
+    "upload": "yarn build && rsync -r --progress dist/. omame.xyz:/var/www/bob-website",
     "lint": "eslint . --ext .ts,.tsx"
   },
   "devDependencies": {
