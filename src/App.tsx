@@ -1,16 +1,19 @@
-import Fallback from '@/components/Fallback'
-import { lazy, Suspense } from 'react'
-import '@fontsource/inter'
+import '@fontsource/inter/variable.css'
 import '@/index.scss'
-
-const Index = lazy(() => import('@/pages/Index'))
+import Index from '@/pages/Index'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Terms from '@/pages/Terms'
+import Footer from '@/components/Footer'
 
 const App = () => (
-	<>
-		<Suspense fallback={<Fallback />}>
-			<Index />
-		</Suspense>
-	</>
+	<BrowserRouter>
+		<Routes>
+			<Route index element={<Index />} />
+			<Route path="terms" element={<Terms />} />
+			<Route path="*" element={<p>not found</p>} />
+		</Routes>
+		<Footer />
+	</BrowserRouter>
 )
 
 export default App

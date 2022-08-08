@@ -2,5 +2,8 @@
     "semi": false,
     "singleQuote": true,
     "trailingComma": "es5",
-    "useTabs": true
+    "useTabs": true,
+    "plugins": [
+        "tailwindcss"
+    ]
 }
