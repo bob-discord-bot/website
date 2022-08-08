@@ -46,6 +46,11 @@ const config: webpack.Configuration = {
 		new HtmlWebpackPlugin({
 			publicPath: '/',
 		}),
+		new webpack.DefinePlugin({
+			API_DOMAIN: JSON.stringify(
+				process.env.NODE_ENV === 'production' ? '/' : 'http://localhost:8540/'
+			),
+		}),
 	],
 }
 

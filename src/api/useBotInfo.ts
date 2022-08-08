@@ -11,7 +11,7 @@ type FetchError = {
 	error: boolean
 }
 
-const API_ENDPOINT = 'http://localhost:8540/api/bot_info'
+const API_ENDPOINT = `${API_DOMAIN}api/bot_info`
 
 const useBotInfo = () => {
 	const [botInfo, setBotInfo] = useState<BotInfo | FetchError | undefined>(
