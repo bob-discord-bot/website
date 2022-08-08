@@ -1,3 +1,5 @@
+import Footer from '@/components/Footer'
+
 const Privacy: Record<string, string[]> = {
 	'Message collection and usage': [
 		'If opted-in, Bob will use your messages, including attachments, to learn and expand its database.',
@@ -22,28 +24,31 @@ const TermsOfService: Record<string, string[]> = {
 }
 
 const Terms = () => (
-	<div class="bg-gradient-to-b from-transparent to-rose-800/40">
-		<div class="container mx-auto px-8 py-32">
-			<h1 class="mb-4 text-5xl font-semibold">Terms of Service</h1>
-			{Object.keys(TermsOfService).map((title) => (
-				<>
-					<h2 class="my-4 text-2xl font-semibold">{title}</h2>
-					{TermsOfService[title].map((text) => (
-						<p class="mb-2">{text}</p>
-					))}
-				</>
-			))}
-			<h1 class="mt-16 mb-4 text-5xl font-semibold">Privacy Policy</h1>
-			{Object.keys(Privacy).map((title) => (
-				<>
-					<h2 class="my-4 text-2xl font-semibold">{title}</h2>
-					{Privacy[title].map((text) => (
-						<p class="mb-2">{text}</p>
-					))}
-				</>
-			))}
+	<>
+		<div class="bg-gradient-to-b from-transparent to-rose-800/40">
+			<div class="container mx-auto px-8 py-32">
+				<h1 class="mb-4 text-5xl font-semibold">Terms of Service</h1>
+				{Object.keys(TermsOfService).map((title) => (
+					<>
+						<h2 class="my-4 text-2xl font-semibold">{title}</h2>
+						{TermsOfService[title].map((text) => (
+							<p class="mb-2">{text}</p>
+						))}
+					</>
+				))}
+				<h1 class="mt-16 mb-4 text-5xl font-semibold">Privacy Policy</h1>
+				{Object.keys(Privacy).map((title) => (
+					<>
+						<h2 class="my-4 text-2xl font-semibold">{title}</h2>
+						{Privacy[title].map((text) => (
+							<p class="mb-2">{text}</p>
+						))}
+					</>
+				))}
+			</div>
 		</div>
-	</div>
+		<Footer />
+	</>
 )
 
 export default Terms

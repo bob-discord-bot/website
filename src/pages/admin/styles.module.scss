@@ -1,0 +1,11 @@
+.link {
+	@apply rounded-full bg-slate-700 py-2 px-6 shadow shadow-slate-900/40 transition-all duration-200 hover:scale-105 flex items-center gap-2;
+
+	&:global(.active) {
+		@apply bg-rose-800 font-semibold shadow-lg shadow-rose-600/40 ring-1 ring-rose-400;
+	}
+
+	& > svg {
+		@apply h-5 w-5;
+	}
+}

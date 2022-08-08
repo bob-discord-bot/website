@@ -1,3 +1,4 @@
+import { FetchError, getAPI } from '@/api/shared'
 import { useEffect, useState } from 'preact/hooks'
 
 type BotInfo = {
@@ -7,12 +8,6 @@ type BotInfo = {
 	version: string
 }
 
-type FetchError = {
-	error: boolean
-}
-
-const API_ENDPOINT = `${API_DOMAIN}api/bot_info`
-
 const useBotInfo = () => {
 	const [botInfo, setBotInfo] = useState<BotInfo | FetchError | undefined>(
 		undefined
@@ -20,7 +15,7 @@ const useBotInfo = () => {
 
 	useEffect(() => {
 		;(async () => {
-			const resp = await fetch(API_ENDPOINT)
+			const resp = await fetch(getAPI('bot_info'))
 			if (!resp.ok) {
 				return setBotInfo({ error: true })
 			}
