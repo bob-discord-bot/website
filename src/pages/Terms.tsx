@@ -9,7 +9,8 @@ const Privacy: Record<string, string[]> = {
 		'Bob will never send sensitive data listed above in a reply to users.',
 	],
 	'Data removal': [
-		"If you wish to delete your message or messages from Bob's reply database for whatever reason, please contact the bot owner.",
+		"If you wish to delete all of your messages from Bob's reply database, you can run the 'b.clean' command.",
+		'If you wish to delete only a particular message, please contact the bot owner with the associated account.',
 	],
 }
 
