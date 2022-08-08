@@ -17,8 +17,8 @@ const config: webpack.Configuration = {
 				use: 'babel-loader',
 			},
 			{
-				test: /\.css$/i,
-				use: ['style-loader', 'css-loader'],
+				test: /\.s?css$/i,
+				use: ['style-loader', 'css-loader', 'postcss-loader'],
 			},
 			{
 				test: /\.(webp|woff2)$/i,
