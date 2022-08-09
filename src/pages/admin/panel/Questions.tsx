@@ -5,7 +5,7 @@ import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import styles from '@/pages/admin/panel/styles.module.scss'
 
-const QuestionObject = (props: {
+export const QuestionObject = (props: {
 	index: number
 	question: Question
 	open: boolean
@@ -33,7 +33,7 @@ const QuestionObject = (props: {
 						</li>
 					))}
 				</ul>
-				<Link className={styles.button} to={props.index.toString()}>
+				<Link className={styles.button} to={`/admin/questions/${props.index}`}>
 					Manage
 				</Link>
 			</div>

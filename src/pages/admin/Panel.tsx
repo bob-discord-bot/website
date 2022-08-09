@@ -10,6 +10,7 @@ import {
 } from '@heroicons/react/outline'
 import Questions from '@/pages/admin/panel/Questions'
 import QuestionManage from '@/pages/admin/panel/QuestionManage'
+import Responses from '@/pages/admin/panel/Responses'
 
 const Panel = () => (
 	<div class="min-w-screen flex h-screen">
@@ -38,6 +39,7 @@ const Panel = () => (
 				<Route index element={<Overview />} />
 				<Route path="questions" element={<Questions />} />
 				<Route path="questions/:question" element={<QuestionManage />} />
+				<Route path="responses" element={<Responses />} />
 			</Routes>
 		</div>
 	</div>
