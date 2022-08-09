@@ -5,6 +5,7 @@ import styles from '@/pages/admin/panel/styles.module.scss'
 import { useState } from 'preact/hooks'
 import classNames from 'classnames'
 import blacklist from '@/api/blacklist'
+import Modal from '@/components/Modal'
 
 const ResponseObject = (props: {
 	response: Response
@@ -35,6 +36,22 @@ const ResponseObject = (props: {
 					</button>
 				</div>
 			)}
+			<Modal
+				title="Delete response?"
+				open={confirm}
+				onClose={() => setConfirm(false)}
+			>
+				<p>
+					Are you sure you want to delete response #{props.index}?{' '}
+					<span class="font-bold text-red-400">
+						This action is irreversible.
+					</span>
+				</p>
+				<p class="whitespace-pre-wrap break-all">
+					Response content: {props.response.text}
+				</p>
+				<button class={styles.button}>Delete response</button>
+			</Modal>
 		</div>
 	)
 }
