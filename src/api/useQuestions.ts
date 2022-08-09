@@ -3,7 +3,7 @@ import { useEffect, useState } from 'preact/hooks'
 
 const useQuestions = (search?: string) => {
 	const [questions, setQuestions] = useState<
-		Question[] | FetchError | undefined
+		Record<number, Question> | FetchError | undefined
 	>(undefined)
 
 	let api = getAPI('questions')
@@ -24,7 +24,7 @@ const useQuestions = (search?: string) => {
 			}
 			setQuestions((await resp.json()) as Question[])
 		})()
-	}, [])
+	}, [search])
 
 	return questions
 }

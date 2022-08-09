@@ -1,3 +1,4 @@
+import { getAPI } from '@/api/shared'
 import Auth from '@/pages/admin/Auth'
 import Panel from '@/pages/admin/Panel'
 import { useEffect } from 'preact/hooks'
@@ -11,7 +12,16 @@ const Admin = () => {
 			console.debug('No dashboard token, redirecting to auth.')
 			navigate('auth', { replace: true })
 		} else {
-			// TODO: check if token is valid
+			fetch(getAPI('auth/check'), {
+				headers: {
+					Authorization: localStorage['DashToken'],
+				},
+			}).then((resp) => {
+				if (!resp.ok) {
+					console.debug('Dashboard token invalid, redirecting to auth.')
+					navigate('auth', { replace: true })
+				}
+			})
 		}
 	}, [])
 

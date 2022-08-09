@@ -62,7 +62,7 @@ const QuestionManage = () => {
 				!('error' in question) ? (
 					<>
 						<p>{question.text}</p>
-						<div class="grid grid-cols-2 gap-4 rounded-lg bg-slate-800 p-4 text-center lg:grid-cols-4">
+						<div class="grid grid-cols-2 items-center gap-4 rounded-lg bg-slate-800 p-4 text-center lg:grid-cols-4">
 							<p>Author: {question.author}</p>
 							<p>Guild: {question.guild}</p>
 							<p>Channel: {question.channel}</p>

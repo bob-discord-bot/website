@@ -1,3 +1,4 @@
+import { getAPI } from '@/api/shared'
 import { Field, Form, Formik } from 'formik'
 import { useEffect, useState } from 'preact/hooks'
 import { useNavigate } from 'react-router'
@@ -6,7 +7,7 @@ const Auth = () => {
 	const navigate = useNavigate()
 
 	useEffect(() => {
-		fetch(`${API_DOMAIN}api/auth/start`, { method: 'POST' }).then((resp) => {
+		fetch(getAPI('auth/start'), { method: 'POST' }).then((resp) => {
 			console.log('auth start:', resp.ok)
 		})
 	}, [])
@@ -33,7 +34,7 @@ const Auth = () => {
 					key: '',
 				}}
 				onSubmit={async (values) => {
-					const resp = await fetch(`${API_DOMAIN}api/auth/check`, {
+					const resp = await fetch(getAPI('auth/check'), {
 						headers: {
 							Authorization: values.key,
 						},
@@ -49,7 +50,7 @@ const Auth = () => {
 				<Form className="flex flex-col items-center gap-6">
 					<Field
 						name="key"
-						type="text"
+						type="password"
 						class="rounded-full border border-rose-400 bg-rose-600/40 px-6 py-3"
 					></Field>
 					<button

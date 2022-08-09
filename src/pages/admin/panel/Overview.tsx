@@ -1,3 +1,4 @@
+import { stopBot, updateBot } from '@/api/maintenance'
 import useBotInfo from '@/api/useBotInfo'
 import styles from '@/pages/admin/panel/styles.module.scss'
 
@@ -21,8 +22,32 @@ const Overview = () => {
 				<p>Loading stats...</p>
 			)}
 			<div class="flex justify-start gap-6">
-				<button class={styles.button}>Stop the bot</button>
-				<button class={styles.button}>Update and stop the bot</button>
+				<button
+					class={styles.button}
+					onClick={() =>
+						stopBot().then((ok) =>
+							alert(
+								ok ? 'Successfully stopped the bot.' : 'Failed to stop the bot.'
+							)
+						)
+					}
+				>
+					Stop the bot
+				</button>
+				<button
+					class={styles.button}
+					onClick={() =>
+						updateBot().then((ok) =>
+							alert(
+								ok
+									? 'Successfully updated and stopped the bot.'
+									: 'Failed to update and stop the bot.'
+							)
+						)
+					}
+				>
+					Update and stop the bot
+				</button>
 			</div>
 		</div>
 	)
