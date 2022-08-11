@@ -5,19 +5,19 @@ export type FetchError = {
 }
 
 export type Response = {
-	author: number
-	channel: number
-	guild: number
-	message: number
+	author: string
+	channel: string
+	guild: string
+	message: string
 	count: number
 	text: string
 }
 
 export type Question = {
-	author: number
-	channel: number
-	guild: number
-	message: number
+	author: string
+	channel: string
+	guild: string
+	message: string
 	text: string
 	responses: Response[]
 }

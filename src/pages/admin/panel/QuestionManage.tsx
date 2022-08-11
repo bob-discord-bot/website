@@ -13,6 +13,7 @@ const ResponseObject = (props: {
 	open: boolean
 	onClick: () => void
 }) => {
+	const navigate = useNavigate()
 	const [confirm, setConfirm] = useState(false)
 	return (
 		<div
@@ -31,9 +32,21 @@ const ResponseObject = (props: {
 						<p>Channel: {props.response.channel}</p>
 						<p>Message: {props.response.message}</p>
 					</div>
-					<button class={styles.button} onClick={() => setConfirm(true)}>
-						Delete response
-					</button>
+					<div class="flex gap-6">
+						<button class={styles.button} onClick={() => setConfirm(true)}>
+							Delete response
+						</button>
+						<button
+							class={styles.button}
+							onClick={() =>
+								blacklist(props.response.author).then((ok) => {
+									if (ok) navigate('..')
+								})
+							}
+						>
+							Blacklist author
+						</button>
+					</div>
 				</div>
 			)}
 			<Modal

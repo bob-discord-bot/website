@@ -11,6 +11,7 @@ import {
 import Questions from '@/pages/admin/panel/Questions'
 import QuestionManage from '@/pages/admin/panel/QuestionManage'
 import Responses from '@/pages/admin/panel/Responses'
+import Blacklist from '@/pages/admin/panel/Blacklist'
 
 const Panel = () => (
 	<div class="min-w-screen flex h-screen">
@@ -40,6 +41,7 @@ const Panel = () => (
 				<Route path="questions" element={<Questions />} />
 				<Route path="questions/:question" element={<QuestionManage />} />
 				<Route path="responses" element={<Responses />} />
+				<Route path="blacklist" element={<Blacklist />} />
 			</Routes>
 		</div>
 	</div>
