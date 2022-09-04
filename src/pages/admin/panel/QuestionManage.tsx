@@ -6,10 +6,12 @@ import { useState } from 'preact/hooks'
 import classNames from 'classnames'
 import blacklist from '@/api/blacklist'
 import Modal from '@/components/Modal'
+import { deleteQuestion, deleteResponse } from '@/api/delete'
 
 const ResponseObject = (props: {
 	response: Response
 	index: number
+	questionIndex: number
 	open: boolean
 	onClick: () => void
 }) => {
@@ -63,7 +65,16 @@ const ResponseObject = (props: {
 				<p class="whitespace-pre-wrap break-all">
 					Response content: {props.response.text}
 				</p>
-				<button class={styles.button}>Delete response</button>
+				<button
+					class={styles.button}
+					onClick={() =>
+						deleteResponse(props.questionIndex, props.index).then((ok) => {
+							if (ok) location.reload()
+						})
+					}
+				>
+					Delete response
+				</button>
 			</Modal>
 		</div>
 	)
@@ -91,6 +102,33 @@ const QuestionManage = () => {
 			{question ? (
 				!('error' in question) ? (
 					<>
+						<Modal
+							title="Delete question?"
+							open={confirm}
+							onClose={() => setConfirm(false)}
+						>
+							<p>
+								Are you sure you want to delete question #{params.question}?{' '}
+								<span class="font-bold text-red-400">
+									This action is irreversible.
+								</span>
+							</p>
+							<p class="whitespace-pre-wrap break-all">
+								Question content: {question.text}
+							</p>
+							<button
+								class={styles.button}
+								onClick={() =>
+									deleteQuestion(Number.parseInt(params.question ?? '')).then(
+										(ok) => {
+											if (ok) navigate('/admin/questions')
+										}
+									)
+								}
+							>
+								Delete question
+							</button>
+						</Modal>
 						<p>{question.text}</p>
 						<div class="grid grid-cols-2 items-center gap-4 rounded-lg bg-slate-800 p-4 text-center lg:grid-cols-4">
 							<p>Author: {question.author}</p>
@@ -110,6 +148,7 @@ const QuestionManage = () => {
 						{question.responses.map((response, index) => (
 							<ResponseObject
 								response={response}
+								questionIndex={Number.parseInt(params.question ?? '')}
 								index={index}
 								open={openResponse === index}
 								onClick={() => setOpenResponse(index)}
