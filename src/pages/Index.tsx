@@ -24,11 +24,17 @@ const Index = () => {
 							and <span class="font-semibold">{botInfo.responses}</span>{' '}
 							responses
 						</h3>
-						<h3 class="col-span-2 rounded-lg border border-rose-400 bg-rose-500/20 p-4 text-xl">
+						{/* <h3 class="col-span-2 rounded-lg border border-rose-400 bg-rose-500/20 p-4 text-xl">
 							<span class="font-semibold">{botInfo.guilds}</span> servers
-						</h3>
+						</h3> */}
 					</div>
 				)}
+				<a
+					href="https://top.gg/bot/788740885021065276"
+					className="rounded-[5px] border border-zinc-600 shadow shadow-zinc-500/40"
+				>
+					<img src="https://top.gg/api/widget/788740885021065276.svg" />
+				</a>
 			</div>
 			<Footer />
 		</>
