@@ -3,11 +3,11 @@ import { NavLink } from 'react-router-dom'
 import styles from '@/pages/admin/styles.module.scss'
 import Overview from '@/pages/admin/panel/Overview'
 import {
-	ChatIcon,
+	ChatBubbleOvalLeftEllipsisIcon,
 	HomeIcon,
 	MinusCircleIcon,
 	QuestionMarkCircleIcon,
-} from '@heroicons/react/outline'
+} from '@heroicons/react/20/solid'
 import Questions from '@/pages/admin/panel/Questions'
 import QuestionManage from '@/pages/admin/panel/QuestionManage'
 import Responses from '@/pages/admin/panel/Responses'
@@ -27,7 +27,7 @@ const Panel = () => (
 				Questions
 			</NavLink>
 			<NavLink to="responses" className={styles.link}>
-				<ChatIcon />
+				<ChatBubbleOvalLeftEllipsisIcon />
 				Responses
 			</NavLink>
 			<NavLink to="blacklist" className={styles.link}>
