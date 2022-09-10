@@ -1,4 +1,4 @@
-import { XIcon } from '@heroicons/react/outline'
+import { XMarkIcon } from '@heroicons/react/24/solid'
 import { ComponentChildren } from 'preact'
 
 const Modal = (props: {
@@ -18,7 +18,7 @@ const Modal = (props: {
 				<div class="flex flex-1 justify-between">
 					<h2 class="text-xl font-semibold">{props.title}</h2>
 					<button class="h-6 w-6" onClick={props.onClose}>
-						<XIcon className="h-6 w-6" />
+						<XMarkIcon className="h-6 w-6" />
 					</button>
 				</div>
 				{props.children}
