@@ -2,6 +2,7 @@ import Footer from '@/components/Footer'
 
 const Privacy: Record<string, string[]> = {
 	'Message collection and usage': [
+		'Bob is explicit-opt-out since September 2022.',
 		'If opted-in, Bob will use your messages, including attachments, to learn and expand its database.',
 		'The bot will additionally log server, channel, message and author IDs.',
 		'Bob will use the messages in its database to respond to messages from other users.',
@@ -9,6 +10,7 @@ const Privacy: Record<string, string[]> = {
 	'Data protection': [
 		'Bob will keep sensitive data (such as server, channel, message and author IDs) private, and will be visible only to the bot owner.',
 		'Bob will never send sensitive data listed above in a reply to users.',
+		"Message content is automatically encrypted and stored for 30 days per Discord's requirements",
 	],
 	'Data removal': [
 		"If you wish to delete all of your messages from Bob's reply database, you can run the 'b.clean' command.",
