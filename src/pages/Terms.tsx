@@ -10,7 +10,8 @@ const Privacy: Record<string, string[]> = {
 	'Data protection': [
 		'Bob will keep sensitive data (such as server, channel, message and author IDs) private, and will be visible only to the bot owner.',
 		'Bob will never send sensitive data listed above in a reply to users.',
-		"Message content is automatically encrypted and stored for 30 days per Discord's requirements",
+		'Message content is automatically encrypted, letting only the bot owner read messages if need be.',
+		'Message content is stored indefinitely, unless a user cleans the data or the content is removed manually by the bot owner.',
 	],
 	'Data removal': [
 		"If you wish to delete all of your messages from Bob's reply database, you can run the 'b.clean' command.",
