@@ -8,7 +8,7 @@
 		"clean": "rm -rf dist",
 		"dev": "webpack serve --mode development",
 		"build": "yarn clean && cross-env NODE_ENV=production webpack --mode production",
-		"upload": "yarn build && rsync -r --progress dist/. omame.xyz:/var/www/bob-website",
+		"deploy": "yarn build && rsync -r --progress dist/. omame.xyz:/var/www/bob-website",
 		"lint": "eslint . --ext .ts,.tsx && prettier -c .",
 		"lint:fix": "eslint . --ext .ts,.tsx --fix && prettier -c . -w"
 	},
