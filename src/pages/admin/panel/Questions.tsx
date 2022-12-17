@@ -4,6 +4,7 @@ import { useState } from 'preact/hooks'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import styles from '@/pages/admin/panel/styles.module.scss'
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/20/solid'
 
 export const QuestionObject = (props: {
 	index: number
@@ -41,9 +42,16 @@ export const QuestionObject = (props: {
 	</div>
 )
 
+const pageSize = 250
+
 const Questions = () => {
 	const [search, setSearch] = useState<string | undefined>(undefined)
-	const questions = useQuestions(search)
+	const [page, setPage] = useState(0)
+	const questions = useQuestions({
+		search,
+		start: page * pageSize,
+		count: pageSize,
+	})
 	const [openQuestion, setOpenQuestion] = useState(-1)
 
 	return (
@@ -77,6 +85,27 @@ const Questions = () => {
 			) : (
 				<p>Loading...</p>
 			)}
+			<div class="flex items-center gap-4">
+				<button
+					class="rounded-full bg-slate-800 p-3 disabled:opacity-50"
+					disabled={page == 0}
+					onClick={() => setPage(page - 1)}
+				>
+					<ArrowLeftIcon className="h-5 w-5" />
+				</button>
+				<p>
+					Page <span className="font-semibold">{page + 1}</span> (
+					{questions && Object.keys(questions).length}/{pageSize} questions
+					shown)
+				</p>
+				<button
+					class="rounded-full bg-slate-800 p-3 disabled:opacity-50"
+					disabled={questions && Object.keys(questions).length !== pageSize}
+					onClick={() => setPage(page + 1)}
+				>
+					<ArrowRightIcon className="h-5 w-5" />
+				</button>
+			</div>
 		</div>
 	)
 }

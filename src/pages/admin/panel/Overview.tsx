@@ -1,6 +1,5 @@
 import { stopBot, updateBot } from '@/api/maintenance'
 import useBotInfo from '@/api/useBotInfo'
-import Modal from '@/components/Modal'
 import styles from '@/pages/admin/panel/styles.module.scss'
 
 const Overview = () => {
